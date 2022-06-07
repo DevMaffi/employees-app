@@ -1,8 +1,14 @@
 import { Component } from 'react'
 
+import './App.css'
+
 export class App extends Component {
   render() {
-    return <h2>Employees App</h2>
+    return (
+      <div className="app">
+        <h2>Employees App</h2>
+      </div>
+    )
   }
 }
 
