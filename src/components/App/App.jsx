@@ -2,7 +2,7 @@ import { Component } from 'react'
 
 import Header from '../Header'
 
-import { SearchPanel, Filter } from '../../common'
+import { SearchPanel, Filter, FilterButton } from '../../common'
 
 import './App.css'
 
@@ -21,15 +21,9 @@ export class App extends Component {
         <div className="filters-panel">
           <SearchPanel placeholder="Find an employee" />
           <Filter>
-            <button type="button" className="btn btn-light">
-              All employees
-            </button>
-            <button type="button" className="btn btn-outline-light">
-              For rise
-            </button>
-            <button type="button" className="btn btn-outline-light">
-              Salary {'>'} 1000%
-            </button>
+            <FilterButton active>All employees</FilterButton>
+            <FilterButton>For rise</FilterButton>
+            <FilterButton>Salary {'>'} 1000%</FilterButton>
           </Filter>
         </div>
       </div>
