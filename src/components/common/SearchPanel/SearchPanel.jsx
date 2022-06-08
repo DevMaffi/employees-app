@@ -1,11 +1,7 @@
+import AppInput from '../AppInput'
+
 function SearchPanel({ placeholder }) {
-  return (
-    <input
-      type="text"
-      placeholder={placeholder}
-      className="form-control search-input"
-    />
-  )
+  return <AppInput placeholder={placeholder} className="search-input" />
 }
 
 export default SearchPanel

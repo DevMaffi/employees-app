@@ -1,3 +1,5 @@
+import AppInput from '../common/AppInput'
+
 import './EmployeesAddForm.css'
 
 function EmployeesAddForm() {
@@ -5,14 +7,10 @@ function EmployeesAddForm() {
     <div className="app-add-form">
       <h3>Add new employee</h3>
       <form className="add-form d-flex">
-        <input
-          type="text"
-          className="form-control new-post-label"
-          placeholder="What's his name?"
-        />
-        <input
+        <AppInput className="new-post-label" placeholder="What's his name?" />
+        <AppInput
           type="number"
-          className="form-control new-post-label"
+          className="new-post-label"
           placeholder="Salary in $?"
         />
         <button type="submit" className="btn btn-outline-light">
