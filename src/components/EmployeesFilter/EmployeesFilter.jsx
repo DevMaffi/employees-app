@@ -1,11 +1,11 @@
-import { Filter, FilterButton } from '../common'
+import { Filter, Button } from '../common'
 
 function EmployeesFilter() {
   return (
     <Filter>
-      <FilterButton active>All employees</FilterButton>
-      <FilterButton>For rise</FilterButton>
-      <FilterButton>Salary {'>'} 1000%</FilterButton>
+      <Button active>All employees</Button>
+      <Button>For rise</Button>
+      <Button>Salary {'>'} 1000%</Button>
     </Filter>
   )
 }

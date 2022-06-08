@@ -1,4 +1,4 @@
-import AppInput from '../common/AppInput'
+import { AppInput, Button } from '../common'
 
 import './EmployeesAddForm.css'
 
@@ -13,9 +13,7 @@ function EmployeesAddForm() {
           className="new-post-label"
           placeholder="Salary in $?"
         />
-        <button type="submit" className="btn btn-outline-light">
-          Add
-        </button>
+        <Button type="submit">Add</Button>
       </form>
     </div>
   )
