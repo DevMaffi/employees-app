@@ -4,7 +4,7 @@ import Header from '../Header'
 import EmployeesFilter from '../EmployeesFilter'
 import EmployeesList from '../EmployeesList'
 
-import { SearchPanel } from '../../common'
+import { SearchPanel } from '../common'
 
 import './App.css'
 

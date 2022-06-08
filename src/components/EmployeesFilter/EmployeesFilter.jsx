@@ -1,4 +1,4 @@
-import { Filter, FilterButton } from '../../common'
+import { Filter, FilterButton } from '../common'
 
 function EmployeesFilter() {
   return (
