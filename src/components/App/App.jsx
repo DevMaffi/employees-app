@@ -12,9 +12,9 @@ import './App.css'
 export class App extends Component {
   state = {
     employees: [
-      { id: 1, name: 'John Smith' },
-      { id: 2, name: 'Brad Pit' },
-      { id: 3, name: 'Hanna Baker' },
+      { id: 1, name: 'John C.', salary: 800 },
+      { id: 2, name: 'Alex M.', salary: 3000 },
+      { id: 3, name: 'Carl W.', salary: 5000 },
     ],
   }
 
@@ -26,11 +26,7 @@ export class App extends Component {
       <div className="app">
         <Header total={total} withPremium="0" />
         <FiltersPanel />
-        <ListGroup
-          data={employees}
-          component={EmployeeListItem}
-          labelProp="name"
-        />
+        <ListGroup data={employees} component={EmployeeListItem} />
         <EmployeesAddForm />
       </div>
     )

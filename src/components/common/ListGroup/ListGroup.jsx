@@ -1,17 +1,14 @@
 import './ListGroup.css'
 
-function ListGroup({ data, component: Component, labelProp }) {
+function ListGroup({ data, component: Component }) {
   return (
     <ul className="list-group list">
-      {data.map(item => (
-        <Component key={item.id} label={item[labelProp]} />
-      ))}
+      {data.map(item => {
+        const { id, ...rest } = item
+        return <Component key={id} {...rest} />
+      })}
     </ul>
   )
-}
-
-ListGroup.defaultProps = {
-  labelProp: 'label',
 }
 
 export default ListGroup
