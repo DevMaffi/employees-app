@@ -1,8 +1,11 @@
 import './EmployeeListItem.css'
 
-function EmployeeListItem({ name, salary }) {
+function EmployeeListItem({ name, salary, increase }) {
+  let classNames = 'list-group-item d-flex justify-content-between '
+  classNames += increase ? 'increase' : null
+
   return (
-    <li className="list-group-item d-flex justify-content-between">
+    <li className={classNames}>
       <span className="list-group-item-label">{name}</span>
       <input
         type="text"
