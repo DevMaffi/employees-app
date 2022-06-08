@@ -3,6 +3,7 @@ import { Component } from 'react'
 import Header from '../Header'
 import EmployeesFilter from '../EmployeesFilter'
 import EmployeeListItem from '../EmployeeListItem'
+import EmployeesAddForm from '../EmployeesAddForm'
 
 import { SearchPanel, ListGroup } from '../common'
 
@@ -33,6 +34,7 @@ export class App extends Component {
           component={EmployeeListItem}
           labelProp="name"
         />
+        <EmployeesAddForm />
       </div>
     )
   }
