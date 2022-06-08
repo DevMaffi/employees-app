@@ -1,11 +1,11 @@
 import { Component } from 'react'
 
 import Header from '../Header'
-import EmployeesFilter from '../EmployeesFilter'
+import FiltersPanel from '../FiltersPanel'
 import EmployeeListItem from '../EmployeeListItem'
 import EmployeesAddForm from '../EmployeesAddForm'
 
-import { SearchPanel, ListGroup } from '../common'
+import ListGroup from '../common/ListGroup'
 
 import './App.css'
 
@@ -25,10 +25,7 @@ export class App extends Component {
     return (
       <div className="app">
         <Header total={total} withPremium="0" />
-        <div className="filters-panel">
-          <SearchPanel placeholder="Find an employee" />
-          <EmployeesFilter />
-        </div>
+        <FiltersPanel />
         <ListGroup
           data={employees}
           component={EmployeeListItem}
