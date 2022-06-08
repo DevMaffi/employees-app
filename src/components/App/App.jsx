@@ -2,9 +2,9 @@ import { Component } from 'react'
 
 import Header from '../Header'
 import EmployeesFilter from '../EmployeesFilter'
-import EmployeesList from '../EmployeesList'
+import EmployeeListItem from '../EmployeeListItem'
 
-import { SearchPanel } from '../common'
+import { SearchPanel, ListGroup } from '../common'
 
 import './App.css'
 
@@ -28,7 +28,11 @@ export class App extends Component {
           <SearchPanel placeholder="Find an employee" />
           <EmployeesFilter />
         </div>
-        <EmployeesList employees={employees} />
+        <ListGroup
+          data={employees}
+          component={EmployeeListItem}
+          labelProp="name"
+        />
       </div>
     )
   }

@@ -1,6 +1,6 @@
 import './EmployeeListItem.css'
 
-function EmployeeListItem({ name }) {
+function EmployeeListItem({ label: name }) {
   return (
     <li className="list-group-item d-flex justify-content-between">
       <span className="list-group-item-label">{name}</span>
