@@ -1,7 +1,7 @@
 import './EmployeeListItem.css'
 
-function EmployeeListItem({ item, onIncrease, onLike }) {
-  const { name, salary, increase, like } = item
+function EmployeeListItem({ item, onIncrease, onLike, onDelete }) {
+  const { id, name, salary, increase, like } = item
 
   let classNames = 'list-group-item d-flex justify-content-between '
 
@@ -26,7 +26,11 @@ function EmployeeListItem({ item, onIncrease, onLike }) {
         >
           <i className="fas fa-cookie"></i>
         </button>
-        <button type="button" className="btn-trash btn-sm">
+        <button
+          type="button"
+          className="btn-trash btn-sm"
+          onClick={() => onDelete(id)}
+        >
           <i className="fas fa-trash"></i>
         </button>
         <i className="fas fa-star"></i>

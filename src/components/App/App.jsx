@@ -35,6 +35,11 @@ export class App extends Component {
     this.#toggleEmployeeProp(item, 'like')
   }
 
+  onDelete = id => {
+    const employees = this.state.employees.filter(e => e.id !== id)
+    this.setState({ employees })
+  }
+
   render() {
     const { employees } = this.state
     const { length: total } = employees
@@ -49,6 +54,7 @@ export class App extends Component {
           component={EmployeeListItem}
           onIncrease={this.onIncrease}
           onLike={this.onLike}
+          onDelete={this.onDelete}
         />
         <EmployeesAddForm />
       </div>
