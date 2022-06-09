@@ -1,4 +1,4 @@
-import { AppForm, Button } from '../common'
+import { AppForm } from '../common'
 
 import './EmployeesAddForm.css'
 
@@ -29,7 +29,7 @@ class EmployeesAddForm extends AppForm {
             'new-post-label',
             'number'
           )}
-          <Button type="submit">Add</Button>
+          {this.renderSubmitButton('Add')}
         </form>
       </div>
     )

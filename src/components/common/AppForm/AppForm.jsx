@@ -1,6 +1,7 @@
 import { Component } from 'react'
 
 import AppInput from '../AppInput'
+import Button from '../Button'
 
 class AppForm extends Component {
   state = {
@@ -36,6 +37,8 @@ class AppForm extends Component {
       />
     )
   }
+
+  renderSubmitButton = label => <Button type="submit">{label}</Button>
 }
 
 export default AppForm
