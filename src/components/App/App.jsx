@@ -18,22 +18,21 @@ export class App extends Component {
     ],
   }
 
-  onIncrease = item => {
+  #toggleEmployeeProp = (item, propName) => {
     const employees = [...this.state.employees]
     const index = employees.indexOf(item)
     employees[index] = { ...item }
-    employees[index].increase = !item.increase
+    employees[index][propName] = !item[propName]
 
     this.setState({ employees })
   }
 
-  onLike = item => {
-    const employees = [...this.state.employees]
-    const index = employees.indexOf(item)
-    employees[index] = { ...item }
-    employees[index].like = !item.like
+  onIncrease = item => {
+    this.#toggleEmployeeProp(item, 'increase')
+  }
 
-    this.setState({ employees })
+  onLike = item => {
+    this.#toggleEmployeeProp(item, 'like')
   }
 
   render() {
