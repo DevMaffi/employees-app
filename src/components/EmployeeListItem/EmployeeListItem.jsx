@@ -1,14 +1,18 @@
 import './EmployeeListItem.css'
 
-function EmployeeListItem({ item, onIncrease }) {
-  const { name, salary, increase } = item
+function EmployeeListItem({ item, onIncrease, onLike }) {
+  const { name, salary, increase, like } = item
 
   let classNames = 'list-group-item d-flex justify-content-between '
-  classNames += increase ? 'increase' : null
+
+  classNames += increase ? 'increase ' : ''
+  classNames += like ? 'like ' : ''
 
   return (
-    <li className={classNames}>
-      <span className="list-group-item-label">{name}</span>
+    <li className={classNames.trim()}>
+      <span className="list-group-item-label" onClick={() => onLike(item)}>
+        {name}
+      </span>
       <input
         type="text"
         className="list-group-item-input"

@@ -13,7 +13,7 @@ export class App extends Component {
   state = {
     employees: [
       { id: 1, name: 'John C.', salary: 800, increase: true },
-      { id: 2, name: 'Alex M.', salary: 3000 },
+      { id: 2, name: 'Alex M.', salary: 3000, like: true },
       { id: 3, name: 'Carl W.', salary: 5000 },
     ],
   }
@@ -23,6 +23,15 @@ export class App extends Component {
     const index = employees.indexOf(item)
     employees[index] = { ...item }
     employees[index].increase = !item.increase
+
+    this.setState({ employees })
+  }
+
+  onLike = item => {
+    const employees = [...this.state.employees]
+    const index = employees.indexOf(item)
+    employees[index] = { ...item }
+    employees[index].like = !item.like
 
     this.setState({ employees })
   }
@@ -40,6 +49,7 @@ export class App extends Component {
           data={employees}
           component={EmployeeListItem}
           onIncrease={this.onIncrease}
+          onLike={this.onLike}
         />
         <EmployeesAddForm />
       </div>
