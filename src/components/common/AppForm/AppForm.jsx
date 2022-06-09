@@ -17,6 +17,7 @@ class AppForm extends Component {
   }
 
   renderInput = (name, placeholder, className, type) => {
+    className = className ?? ''
     type = type ?? 'text'
 
     return (
