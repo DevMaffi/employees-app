@@ -18,6 +18,8 @@ export class App extends Component {
     ],
   }
 
+  maxId = 4
+
   #toggleEmployeeProp = (item, propName) => {
     const employees = [...this.state.employees]
     const index = employees.indexOf(item)
@@ -40,6 +42,15 @@ export class App extends Component {
     this.setState({ employees })
   }
 
+  onAdd = (name, salary) => {
+    const employee = { id: this.maxId++, name, salary }
+
+    const employees = [...this.state.employees]
+    employees.push(employee)
+
+    this.setState({ employees })
+  }
+
   render() {
     const { employees } = this.state
     const { length: total } = employees
@@ -56,7 +67,7 @@ export class App extends Component {
           onLike={this.onLike}
           onDelete={this.onDelete}
         />
-        <EmployeesAddForm />
+        <EmployeesAddForm onAdd={this.onAdd} />
       </div>
     )
   }

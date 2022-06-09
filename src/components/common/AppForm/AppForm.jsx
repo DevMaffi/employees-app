@@ -16,6 +16,11 @@ class AppForm extends Component {
     this.setState({ data })
   }
 
+  onSubmit = e => {
+    e.preventDefault()
+    this.doSubmit()
+  }
+
   renderInput = (name, placeholder, className, type) => {
     className = className ?? ''
     type = type ?? 'text'
