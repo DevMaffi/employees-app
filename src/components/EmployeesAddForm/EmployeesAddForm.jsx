@@ -1,10 +1,8 @@
-import { Component } from 'react'
-
-import { AppInput, Button } from '../common'
+import { AppForm, Button } from '../common'
 
 import './EmployeesAddForm.css'
 
-class EmployeesAddForm extends Component {
+class EmployeesAddForm extends AppForm {
   state = {
     data: {
       name: '',
@@ -12,37 +10,18 @@ class EmployeesAddForm extends Component {
     },
   }
 
-  onValueChange = e => {
-    const { currentTarget: input } = e
-
-    const data = { ...this.state.data }
-    data[input.name] = input.value
-
-    this.setState({ data })
-  }
-
-  #renderInput = (name, placeholder, type) => {
-    type = type ?? 'text'
-
-    return (
-      <AppInput
-        type={type}
-        name={name}
-        className="new-post-label"
-        placeholder={placeholder}
-        value={this.state.data[name]}
-        onChange={this.onValueChange}
-      />
-    )
-  }
-
   render() {
     return (
       <div className="app-add-form">
         <h3>Add new employee</h3>
         <form className="add-form d-flex">
-          {this.#renderInput('name', "What's his name?")}
-          {this.#renderInput('salary', 'Salary in $?', 'number')}
+          {this.renderInput('name', "What's his name?", 'new-post-label')}
+          {this.renderInput(
+            'salary',
+            'Salary in $?',
+            'new-post-label',
+            'number'
+          )}
           <Button type="submit">Add</Button>
         </form>
       </div>

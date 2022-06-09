@@ -1,4 +1,5 @@
 export { default as AppInput } from './AppInput'
+export { default as AppForm } from './AppForm'
 export { default as SearchPanel } from './SearchPanel'
 export { default as Filter } from './Filter'
 export { default as Button } from './Button'
