@@ -10,7 +10,18 @@ class EmployeesAddForm extends AppForm {
     },
   }
 
+  validate = () => {
+    const { data } = this.state
+    const hasEmpty = !!Object.keys(data).find(
+      key => data[key].trim().length === 0
+    )
+
+    return hasEmpty ? false : true
+  }
+
   doSubmit = () => {
+    if (!this.validate()) return
+
     const { name, salary } = this.state.data
     this.props.onAdd(name, salary)
 
