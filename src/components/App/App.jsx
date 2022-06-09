@@ -18,6 +18,15 @@ export class App extends Component {
     ],
   }
 
+  onIncrease = item => {
+    const employees = [...this.state.employees]
+    const index = employees.indexOf(item)
+    employees[index] = { ...item }
+    employees[index].increase = !item.increase
+
+    this.setState({ employees })
+  }
+
   render() {
     const { employees } = this.state
     const { length: total } = employees
@@ -27,7 +36,11 @@ export class App extends Component {
       <div className="app">
         <Header total={total} withPremium={withPremium} />
         <FiltersPanel />
-        <ListGroup data={employees} component={EmployeeListItem} />
+        <ListGroup
+          data={employees}
+          component={EmployeeListItem}
+          onIncrease={this.onIncrease}
+        />
         <EmployeesAddForm />
       </div>
     )

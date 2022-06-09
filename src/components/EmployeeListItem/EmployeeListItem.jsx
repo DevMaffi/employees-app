@@ -1,6 +1,8 @@
 import './EmployeeListItem.css'
 
-function EmployeeListItem({ name, salary, increase }) {
+function EmployeeListItem({ item, onIncrease }) {
+  const { name, salary, increase } = item
+
   let classNames = 'list-group-item d-flex justify-content-between '
   classNames += increase ? 'increase' : null
 
@@ -13,7 +15,11 @@ function EmployeeListItem({ name, salary, increase }) {
         defaultValue={`${salary}$`}
       />
       <div className="d-flex justify-content-center align-items-center">
-        <button type="button" className="btn-cookie btn-sm">
+        <button
+          type="button"
+          className="btn-cookie btn-sm"
+          onClick={() => onIncrease(item)}
+        >
           <i className="fas fa-cookie"></i>
         </button>
         <button type="button" className="btn-trash btn-sm">

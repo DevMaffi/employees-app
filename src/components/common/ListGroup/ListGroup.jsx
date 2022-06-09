@@ -1,11 +1,11 @@
 import './ListGroup.css'
 
-function ListGroup({ data, component: Component }) {
+function ListGroup({ data, component: Component, ...componentProps }) {
   return (
     <ul className="list-group list">
       {data.map(item => {
-        const { id, ...rest } = item
-        return <Component key={id} {...rest} />
+        const { id } = item
+        return <Component key={id} item={item} {...componentProps} />
       })}
     </ul>
   )
