@@ -1,7 +1,14 @@
 import AppInput from '../AppInput'
 
-function SearchPanel({ placeholder }) {
-  return <AppInput placeholder={placeholder} className="search-input" />
+function SearchPanel({ placeholder, queryString, onSearch }) {
+  return (
+    <AppInput
+      placeholder={placeholder}
+      value={queryString}
+      onInput={onSearch}
+      className="search-input"
+    />
+  )
 }
 
 export default SearchPanel

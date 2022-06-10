@@ -16,6 +16,7 @@ export class App extends Component {
       { id: 2, name: 'Alex M.', salary: 3000, like: true },
       { id: 3, name: 'Carl W.', salary: 5000 },
     ],
+    queryString: '',
   }
 
   maxId = 4
@@ -51,15 +52,40 @@ export class App extends Component {
     this.setState({ employees })
   }
 
+  onSearch = e => {
+    const { currentTarget: input } = e
+    this.setState({ queryString: input.value })
+  }
+
+  #getFilteredData = () => {
+    const { employees, queryString } = this.state
+
+    let filtered = employees
+
+    if (queryString)
+      filtered = employees.filter(e =>
+        e.name.toLowerCase().startsWith(queryString.toLowerCase())
+      )
+
+    const withPremium = filtered.filter(e => e.increase).length
+
+    return {
+      data: filtered,
+      total: filtered.length,
+      withPremium,
+    }
+  }
+
   render() {
-    const { employees } = this.state
-    const { length: total } = employees
-    const { length: withPremium } = employees.filter(e => e.increase)
+    const { total, data: employees, withPremium } = this.#getFilteredData()
 
     return (
       <div className="app">
         <Header total={total} withPremium={withPremium} />
-        <FiltersPanel />
+        <FiltersPanel
+          queryString={this.state.queryString}
+          onSearch={this.onSearch}
+        />
         <ListGroup
           data={employees}
           component={EmployeeListItem}
