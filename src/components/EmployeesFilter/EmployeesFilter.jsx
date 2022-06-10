@@ -1,11 +1,17 @@
 import { Filter, Button } from '../common'
 
-function EmployeesFilter() {
+function EmployeesFilter({ filters, onFilterChange }) {
   return (
     <Filter>
-      <Button active>All employees</Button>
-      <Button>For rise</Button>
-      <Button>Salary {'>'} 1000%</Button>
+      {filters.map((filter, i) => (
+        <Button
+          key={i}
+          active={filter.isActive}
+          onClick={() => onFilterChange(filter)}
+        >
+          {filter.label}
+        </Button>
+      ))}
     </Filter>
   )
 }

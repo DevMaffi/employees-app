@@ -17,6 +17,20 @@ export class App extends Component {
       { id: 3, name: 'Carl W.', salary: 5000 },
     ],
     queryString: '',
+    filters: [
+      { label: 'All employees', type: 'all', isActive: true },
+      {
+        label: 'For rise',
+        type: 'like',
+        predicate: e => e.like,
+      },
+      {
+        label: 'Salary > 1000',
+        type: 'moreThen',
+        predicate: e => e.salary > 1000,
+      },
+    ],
+    doFilter: null,
   }
 
   maxId = 4
@@ -57,15 +71,32 @@ export class App extends Component {
     this.setState({ queryString: input.value })
   }
 
+  onFilterChange = filter => {
+    const filters = [...this.state.filters]
+    const active = filters.find(f => f.isActive)
+
+    if (active === filter) return
+
+    const activeIndex = filters.indexOf(active)
+    filters[activeIndex] = { ...active, isActive: false }
+
+    const index = filters.indexOf(filter)
+    filters[index] = { ...filter }
+    filters[index].isActive = !filter.isActive
+
+    this.setState({ filters, doFilter: filter.predicate })
+  }
+
   #getFilteredData = () => {
-    const { employees, queryString } = this.state
+    const { employees, queryString, doFilter } = this.state
 
-    let filtered = employees
+    const searched = queryString
+      ? employees.filter(e =>
+          e.name.toLowerCase().startsWith(queryString.toLowerCase())
+        )
+      : employees
 
-    if (queryString)
-      filtered = employees.filter(e =>
-        e.name.toLowerCase().startsWith(queryString.toLowerCase())
-      )
+    const filtered = doFilter ? searched.filter(doFilter) : searched
 
     const withPremium = filtered.filter(e => e.increase).length
 
@@ -78,13 +109,16 @@ export class App extends Component {
 
   render() {
     const { total, data: employees, withPremium } = this.#getFilteredData()
+    const { queryString, filters } = this.state
 
     return (
       <div className="app">
         <Header total={total} withPremium={withPremium} />
         <FiltersPanel
-          queryString={this.state.queryString}
+          queryString={queryString}
           onSearch={this.onSearch}
+          filters={filters}
+          onFilterChange={this.onFilterChange}
         />
         <ListGroup
           data={employees}

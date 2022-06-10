@@ -4,7 +4,7 @@ import SearchPanel from '../common/SearchPanel'
 
 import './FiltersPanel.css'
 
-function FiltersPanel({ queryString, onSearch }) {
+function FiltersPanel({ queryString, onSearch, filters, onFilterChange }) {
   return (
     <div className="filters-panel">
       <SearchPanel
@@ -12,7 +12,7 @@ function FiltersPanel({ queryString, onSearch }) {
         queryString={queryString}
         onSearch={onSearch}
       />
-      <EmployeesFilter />
+      <EmployeesFilter filters={filters} onFilterChange={onFilterChange} />
     </div>
   )
 }

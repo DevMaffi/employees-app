@@ -1,11 +1,11 @@
 function Button(props) {
-  const { type, active } = props
+  const { active, ...rest } = props
 
   let classNames = 'btn btn-'
   classNames += active ? 'light' : 'outline-light'
 
   return (
-    <button type={type} className={classNames}>
+    <button className={classNames} {...rest}>
       {props.children}
     </button>
   )
