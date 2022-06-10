@@ -1,6 +1,12 @@
 import './EmployeeListItem.css'
 
-function EmployeeListItem({ item, onIncrease, onLike, onDelete }) {
+function EmployeeListItem({
+  item,
+  onSalaryChange,
+  onIncrease,
+  onLike,
+  onDelete,
+}) {
   const { id, name, salary, increase, like } = item
 
   let classNames = 'list-group-item d-flex justify-content-between '
@@ -16,7 +22,8 @@ function EmployeeListItem({ item, onIncrease, onLike, onDelete }) {
       <input
         type="text"
         className="list-group-item-input"
-        defaultValue={`${salary}$`}
+        value={`$${salary}`}
+        onInput={e => onSalaryChange(e, item)}
       />
       <div className="d-flex justify-content-center align-items-center">
         <button

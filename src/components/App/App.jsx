@@ -35,6 +35,17 @@ export class App extends Component {
 
   maxId = 4
 
+  onSalaryChange = (e, item) => {
+    const employees = [...this.state.employees]
+    const index = employees.indexOf(item)
+    employees[index] = { ...item }
+
+    const { currentTarget: input } = e
+    employees[index].salary = +input.value.match(/\d+/)?.[0] || ''
+
+    this.setState({ employees })
+  }
+
   #toggleEmployeeProp = (item, propName) => {
     const employees = [...this.state.employees]
     const index = employees.indexOf(item)
@@ -123,6 +134,7 @@ export class App extends Component {
         <ListGroup
           data={employees}
           component={EmployeeListItem}
+          onSalaryChange={this.onSalaryChange}
           onIncrease={this.onIncrease}
           onLike={this.onLike}
           onDelete={this.onDelete}
