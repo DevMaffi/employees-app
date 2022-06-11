@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const AppInfo = styled.div`
+const StyledAppInfo = styled.div`
   padding: 25px;
   border-radius: 4px;
   background-color: #3d5a80;
@@ -10,11 +10,11 @@ const AppInfo = styled.div`
 
 function Header({ total, withPremium }) {
   return (
-    <AppInfo>
+    <StyledAppInfo>
       <h1>Employees accountant</h1>
       <h2>Total number of employees - {total}</h2>
       <h2>Will receive the increase - {withPremium}</h2>
-    </AppInfo>
+    </StyledAppInfo>
   )
 }
 
