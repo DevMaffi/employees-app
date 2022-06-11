@@ -1,6 +1,24 @@
+import styled from 'styled-components'
+
 import { AppForm } from '../common'
 
-import './EmployeesAddForm.css'
+const StyledAddForm = styled.div`
+  margin-top: 30px;
+  padding: 25px;
+  border-radius: 4px;
+  background-color: #3d5a80;
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15);
+  color: #fff;
+
+  & .add-form {
+    margin-top: 20px;
+  }
+
+  & .add-form input {
+    width: 350px;
+    margin-right: 20px;
+  }
+`
 
 class EmployeesAddForm extends AppForm {
   state = {
@@ -30,7 +48,7 @@ class EmployeesAddForm extends AppForm {
 
   render() {
     return (
-      <div className="app-add-form">
+      <StyledAddForm>
         <h3>Add new employee</h3>
         <form className="add-form d-flex" onSubmit={this.onSubmit}>
           {this.renderInput('name', "What's his name?", 'new-post-label')}
@@ -42,7 +60,7 @@ class EmployeesAddForm extends AppForm {
           )}
           {this.renderSubmitButton('Add')}
         </form>
-      </div>
+      </StyledAddForm>
     )
   }
 }
