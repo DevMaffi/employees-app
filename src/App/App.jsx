@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import styled from 'styled-components'
 
 import Header from '../components/Header'
 import FiltersPanel from '../components/FiltersPanel'
@@ -7,7 +8,10 @@ import EmployeesAddForm from '../components/EmployeesAddForm'
 
 import ListGroup from '../components/common/ListGroup'
 
-import './App.css'
+const StyledApp = styled.div`
+  margin: 50px auto;
+  max-width: 1000px;
+`
 
 export class App extends Component {
   state = {
@@ -123,7 +127,7 @@ export class App extends Component {
     const { queryString, filters } = this.state
 
     return (
-      <div className="app">
+      <StyledApp>
         <Header total={total} withPremium={withPremium} />
         <FiltersPanel
           queryString={queryString}
@@ -140,7 +144,7 @@ export class App extends Component {
           onDelete={this.onDelete}
         />
         <EmployeesAddForm onAdd={this.onAdd} />
-      </div>
+      </StyledApp>
     )
   }
 }
