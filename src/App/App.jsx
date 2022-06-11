@@ -1,11 +1,11 @@
 import { Component } from 'react'
 
-import Header from '../Header'
-import FiltersPanel from '../FiltersPanel'
-import EmployeeListItem from '../EmployeeListItem'
-import EmployeesAddForm from '../EmployeesAddForm'
+import Header from '../components/Header'
+import FiltersPanel from '../components/FiltersPanel'
+import EmployeeListItem from '../components/EmployeeListItem'
+import EmployeesAddForm from '../components/EmployeesAddForm'
 
-import ListGroup from '../common/ListGroup'
+import ListGroup from '../components/common/ListGroup'
 
 import './App.css'
 
