@@ -1,7 +1,12 @@
-import './Filter.css'
+import styled from 'styled-components'
 
 function Filter(props) {
-  return <div className="btn-group filter">{props.children}</div>
+  const classNames = `btn-group ${props.className}`
+  return <div className={classNames}>{props.children}</div>
 }
 
-export default Filter
+const StyledFilter = styled(Filter)`
+  margin-top: 20px;
+`
+
+export default StyledFilter
