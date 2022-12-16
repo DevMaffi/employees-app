@@ -16,9 +16,8 @@ const StyledApp = styled.div`
 export class App extends Component {
   state = {
     employees: [
-      { id: 1, name: 'John C.', salary: 800, increase: true },
-      { id: 2, name: 'Alex M.', salary: 3000, like: true },
-      { id: 3, name: 'Carl W.', salary: 5000 },
+      { id: 1, name: 'Maximka R.', salary: 1, like: true },
+      { id: 2, name: 'Alexandra R.', salary: 100000, increase: true },
     ],
     queryString: '',
     filters: [
