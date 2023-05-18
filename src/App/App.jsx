@@ -23,9 +23,14 @@ export class App extends Component {
     filters: [
       { label: 'All employees', type: 'all', isActive: true },
       {
-        label: 'For rise',
+        label: 'Favorites',
         type: 'like',
         predicate: e => e.like,
+      },
+      {
+        label: 'For rise',
+        type: 'increase',
+        predicate: e => e.increase,
       },
       {
         label: 'Salary > 1000',
@@ -106,7 +111,7 @@ export class App extends Component {
 
     const searched = queryString
       ? employees.filter(e =>
-          e.name.toLowerCase().startsWith(queryString.toLowerCase())
+          e.name.toLowerCase().includes(queryString.toLowerCase())
         )
       : employees
 
