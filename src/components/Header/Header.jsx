@@ -8,12 +8,13 @@ const StyledAppInfo = styled.div`
   color: white;
 `
 
-function Header({ total, withPremium }) {
+function Header({ total, withPremium, totalSalary }) {
   return (
     <StyledAppInfo>
       <h1>Employees accountant</h1>
       <h2>Total number of employees - {total}</h2>
       <h2>Will receive the increase - {withPremium}</h2>
+      <h2>Total salary - ${totalSalary}</h2>
     </StyledAppInfo>
   )
 }

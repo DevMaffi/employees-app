@@ -119,20 +119,33 @@ export class App extends Component {
 
     const withPremium = filtered.filter(e => e.increase).length
 
+    const totalSalary = filtered.reduce((sum, acc) => sum + +acc.salary, 0)
+
     return {
       data: filtered,
       total: filtered.length,
       withPremium,
+      totalSalary,
     }
   }
 
   render() {
-    const { total, data: employees, withPremium } = this.#getFilteredData()
+    const {
+      total,
+      data: employees,
+      withPremium,
+      totalSalary,
+    } = this.#getFilteredData()
+
     const { queryString, filters } = this.state
 
     return (
       <StyledApp>
-        <Header total={total} withPremium={withPremium} />
+        <Header
+          total={total}
+          withPremium={withPremium}
+          totalSalary={totalSalary}
+        />
         <FiltersPanel
           queryString={queryString}
           onSearch={this.onSearch}
