@@ -20,7 +20,7 @@ function EmployeeListItem({
       <input
         type="text"
         className="list-group-item-input"
-        value={`$${salary}`}
+        value={`₴${salary}`}
         onInput={e => onSalaryChange(e, item)}
       />
       <div className="d-flex justify-content-center align-items-center">

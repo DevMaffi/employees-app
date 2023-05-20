@@ -16,24 +16,24 @@ const StyledApp = styled.div`
 export class App extends Component {
   state = {
     employees: [
-      { id: 1, name: 'Maximka R.', salary: 1, like: true },
-      { id: 2, name: 'Alexandra R.', salary: 100000, increase: true },
+      { id: 1, name: 'Максим Р.', salary: 50000, like: true },
+      { id: 2, name: 'Олександра Р.', salary: 50000, increase: true },
     ],
     queryString: '',
     filters: [
-      { label: 'All employees', type: 'all', isActive: true },
+      { label: 'Всі працівники', type: 'all', isActive: true },
       {
-        label: 'Favorites',
+        label: 'Відмічені',
         type: 'like',
         predicate: e => e.like,
       },
       {
-        label: 'For rise',
+        label: 'На підвищення',
         type: 'increase',
         predicate: e => e.increase,
       },
       {
-        label: 'Salary > 1000',
+        label: 'ЗП > 1000',
         type: 'moreThen',
         predicate: e => e.salary > 1000,
       },

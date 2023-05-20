@@ -11,10 +11,10 @@ const StyledAppInfo = styled.div`
 function Header({ total, withPremium, totalSalary }) {
   return (
     <StyledAppInfo>
-      <h1>Employees accountant</h1>
-      <h2>Total number of employees - {total}</h2>
-      <h2>Will receive the increase - {withPremium}</h2>
-      <h2>Total salary - ${totalSalary}</h2>
+      <h1>Облік працівників</h1>
+      <h2>Загальна кількість кадрів - {total}</h2>
+      <h2>Отримають підвищення - {withPremium}</h2>
+      <h2>Загальна сума виплат - ₴{totalSalary}</h2>
     </StyledAppInfo>
   )
 }

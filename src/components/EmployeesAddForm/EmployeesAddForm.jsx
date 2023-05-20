@@ -49,16 +49,11 @@ class EmployeesAddForm extends AppForm {
   render() {
     return (
       <StyledAddForm>
-        <h3>Add new employee</h3>
+        <h3>Додати працівника</h3>
         <form className="add-form d-flex" onSubmit={this.onSubmit}>
-          {this.renderInput('name', "What's his name?", 'new-post-label')}
-          {this.renderInput(
-            'salary',
-            'Salary in $?',
-            'new-post-label',
-            'number'
-          )}
-          {this.renderSubmitButton('Add')}
+          {this.renderInput('name', "Ім'я", 'new-post-label')}
+          {this.renderInput('salary', 'ЗП в ₴', 'new-post-label', 'number')}
+          {this.renderSubmitButton('Додати')}
         </form>
       </StyledAddForm>
     )

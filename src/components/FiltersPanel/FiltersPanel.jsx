@@ -17,7 +17,7 @@ function FiltersPanel({ queryString, onSearch, filters, onFilterChange }) {
   return (
     <StyledFiltersPanel>
       <SearchPanel
-        placeholder="Find an employee"
+        placeholder="Пошук по імені"
         queryString={queryString}
         onSearch={onSearch}
       />
