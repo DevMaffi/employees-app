@@ -53,7 +53,12 @@ class EmployeesAddForm extends AppForm {
         <h3>Додати працівника</h3>
         <form className="add-form d-flex" onSubmit={this.onSubmit}>
           {this.renderInput('name', "Ім'я", 'new-post-label')}
-          {this.renderInput('phone', 'Номер телефону', 'new-post-label')}
+          {this.renderInput(
+            'phone',
+            'Номер телефону',
+            'new-post-label',
+            'number'
+          )}
           {this.renderInput('salary', 'ЗП в ₴', 'new-post-label', 'number')}
           {this.renderSubmitButton('Додати')}
         </form>
