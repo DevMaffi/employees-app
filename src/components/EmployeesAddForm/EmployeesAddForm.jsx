@@ -24,6 +24,7 @@ class EmployeesAddForm extends AppForm {
   state = {
     data: {
       name: '',
+      phone: '',
       salary: '',
     },
   }
@@ -40,10 +41,10 @@ class EmployeesAddForm extends AppForm {
   doSubmit = () => {
     if (!this.validate()) return
 
-    const { name, salary } = this.state.data
-    this.props.onAdd(name, salary)
+    const { name, phone, salary } = this.state.data
+    this.props.onAdd(name, phone, salary)
 
-    this.setState({ data: { name: '', salary: '' } })
+    this.setState({ data: { name: '', phone: '', salary: '' } })
   }
 
   render() {
@@ -52,6 +53,7 @@ class EmployeesAddForm extends AppForm {
         <h3>Додати працівника</h3>
         <form className="add-form d-flex" onSubmit={this.onSubmit}>
           {this.renderInput('name', "Ім'я", 'new-post-label')}
+          {this.renderInput('phone', 'Номер телефону', 'new-post-label')}
           {this.renderInput('salary', 'ЗП в ₴', 'new-post-label', 'number')}
           {this.renderSubmitButton('Додати')}
         </form>

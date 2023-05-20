@@ -3,20 +3,31 @@ import styled from 'styled-components'
 function EmployeeListItem({
   item,
   className,
+  onPhoneChange,
   onSalaryChange,
   onIncrease,
   onLike,
   onDelete,
 }) {
-  const { id, name, salary } = item
+  const { id, name, phone, salary } = item
 
   let classNames = `${className} list-group-item d-flex justify-content-between`
 
   return (
     <li className={classNames}>
-      <span className="list-group-item-label" onClick={() => onLike(item)}>
+      <span
+        style={{ minWidth: '200px' }}
+        className="list-group-item-label"
+        onClick={() => onLike(item)}
+      >
         {name}
       </span>
+      <input
+        type="text"
+        className="list-group-item-input"
+        value={`+${phone}`}
+        onInput={e => onPhoneChange(e, item)}
+      />
       <input
         type="text"
         className="list-group-item-input"

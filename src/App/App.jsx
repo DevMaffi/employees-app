@@ -16,8 +16,20 @@ const StyledApp = styled.div`
 export class App extends Component {
   state = {
     employees: [
-      { id: 1, name: 'Максим Р.', salary: 50000, like: true },
-      { id: 2, name: 'Олександра Р.', salary: 50000, increase: true },
+      {
+        id: 1,
+        name: 'Максим Р.',
+        phone: '380972344343',
+        salary: 50000,
+        like: true,
+      },
+      {
+        id: 2,
+        name: 'Олександра Р.',
+        phone: '380638732101',
+        salary: 50000,
+        increase: true,
+      },
     ],
     queryString: '',
     filters: [
@@ -42,6 +54,17 @@ export class App extends Component {
   }
 
   maxId = 4
+
+  onPhoneChange = (e, item) => {
+    const employees = [...this.state.employees]
+    const index = employees.indexOf(item)
+    employees[index] = { ...item }
+
+    const { currentTarget: input } = e
+    employees[index].phone = +input.value.match(/\d+/)?.[0] || ''
+
+    this.setState({ employees })
+  }
 
   onSalaryChange = (e, item) => {
     const employees = [...this.state.employees]
@@ -76,8 +99,8 @@ export class App extends Component {
     this.setState({ employees })
   }
 
-  onAdd = (name, salary) => {
-    const employee = { id: this.maxId++, name, salary }
+  onAdd = (name, phone, salary) => {
+    const employee = { id: this.maxId++, name, phone, salary }
 
     const employees = [...this.state.employees]
     employees.push(employee)
@@ -155,6 +178,7 @@ export class App extends Component {
         <ListGroup
           data={employees}
           component={EmployeeListItem}
+          onPhoneChange={this.onPhoneChange}
           onSalaryChange={this.onSalaryChange}
           onIncrease={this.onIncrease}
           onLike={this.onLike}
